@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="row">
+    <!-- Conteúdo principal -->
+    <div class="col-12 col-md-10 col-lg-6 mx-auto mt-5">
+      <!-- Titulo -->
+      <div class="text-md-start">
+        <h1 class="fw-bold text-dark">
+            Editar Sessão
+          </h1>
+        <hr />
+      </div>
+
+      <form [formGroup]="formSessao" class="mt-4">
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Data:</label>
+          <input
+            [ngClass]="data?.touched && data?.invalid ? 'is-invalid' : ''"
+            formControlName="data"
+            class="form-control"
+            type="date"
+            placeholder="Digite a data da sessão:"
+          />
+          <div class="invalid-tooltip" *ngIf="data?.touched && data?.invalid">
+            <span *ngIf="data?.errors?.['required']">A data deve ser preenchida.</span>
+          </div>
+        </div>
+
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Hora de Início:</label>
+          <input
+            [ngClass]="horaInicio?.touched && horaInicio?.invalid ? 'is-invalid' : ''"
+            formControlName="horaInicio"
+            class="form-control"
+            type="time"
+            placeholder="Digite a hora de inicio da sessão:"
+          />
+          <div class="invalid-tooltip" *ngIf="horaInicio?.touched && horaInicio?.invalid">
+            <span *ngIf="horaInicio?.errors?.['required']">A hora de inicio deve ser preenchida.</span>
+          </div>
+        </div>
+
+       
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Tipo de Sessão:</label>
+          <ng-select
+            [ngClass]="tipoSessao?.touched && tipoSessao?.invalid ? 'is-invalid' : ''"
+            formControlName="tipoSessao"
+            [clearable]="false"
+            [searchable]="false">
+            <ng-option *ngFor="let tipoSessao of tiposSessao; index as i" [value]="i" >
+              {{tipoSessao}}
+            </ng-option>
+          </ng-select>
+          <div class="invalid-tooltip" *ngIf="tipoSessao?.touched && tipoSessao?.invalid">
+            <span *ngIf="tipoSessao?.errors?.['required']">O tipo da sessão  precisa ser escolhido.</span>
+          </div>
+        </div>
+
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Tipo de Áudio:</label>
+          <ng-select
+            [ngClass]="tipoAudio?.touched && tipoAudio?.invalid ? 'is-invalid' : ''"
+            formControlName="tipoAudio"
+            [clearable]="false"
+            [searchable]="false">
+            <ng-option *ngFor="let tipoAudio of tiposAudio; index as i" [value]="i" >
+              {{tipoAudio}}
+            </ng-option>
+          </ng-select>
+          <div class="invalid-tooltip" *ngIf="tipoAudio?.touched && tipoAudio?.invalid">
+            <span *ngIf="tipoAudio?.errors?.['required']">O tipo de áudio  precisa ser escolhido.</span>
+          </div>
+        </div>
+
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Valor do Ingresso:</label>
+          <input
+            [ngClass]="valorIngresso?.touched && valorIngresso?.invalid ? 'is-invalid' : ''"
+            currencyMask [options]="{  prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
+            formControlName="valorIngresso"
+            class="form-control"
+            type="text"
+            placeholder="Digite o valor do ingresso "
+          />
+          <div class="invalid-tooltip" *ngIf="valorIngresso?.touched && valorIngresso?.invalid">
+            <span *ngIf="valorIngresso?.errors?.['required']">O valor do ingresso precisa ser preenchido.</span>
+          </div>
+        </div>
+
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Nome do Filme:</label>
+          <ng-select class="custom" [ngClass]="filmeId?.touched && filmeId?.invalid ? 'is-invalid' : ''"
+          formControlName="filmeId" [clearable]="false" [searchable]="false">
+          <ng-option *ngFor="let filme of (filmes | async) ;" [value]="filme.id">
+            <!-- Observables | async -->
+            {{ filme.titulo }}
+          </ng-option>
+        </ng-select>
+          <!-- <div class="invalid-tooltip" *ngIf="assunto?.touched && assunto?.invalid">
+            <span *ngIf="assunto?.errors?.['minlength']">O nome do filme deve ter no mínimo 3 caracteres.</span>
+          </div> -->
+        </div>
+
+        <div class="form-group mb-3 position-relative">
+          <label class="form-label">Nome da Sala:</label>
+          <ng-select class="custom" [ngClass]="salaId?.touched && salaId?.invalid ? 'is-invalid' : ''"
+          formControlName="salaId" [clearable]="false" [searchable]="false">
+          <ng-option *ngFor="let sala of (salas | async) ;" [value]="sala.id">
+            <!-- Observables | async -->
+            {{ sala.nome }}
+          </ng-option>
+        </ng-select>
+          <!-- <div class="invalid-tooltip" *ngIf="assunto?.touched && assunto?.invalid">
+            <span *ngIf="assunto?.errors?.['minlength']">O nome da sala deve ter no mínimo 3 caracteres.</span>
+          </div> -->
+        </div>
+
+        <div class="card-footer g-grid d-flex gap-1 mt-5">
+          <button (click)="gravar()"
+            type="button" class="btn btn-dark px-5">
+            <i class="pi pi-save me-2"></i>
+            Gravar
+          </button>
+          <button routerLink="/sessoes/listar"
+            type="button" class="btn btn-outline-warning px-5">
+            <i class="pi pi-arrow-left me-2"></i>
+            Voltar
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <!-- Conteúdo principal -->
+    <div class="col-12 col-md-10 col-lg-9 mx-auto my-5">
+      <!-- Titulo -->
+      <div class="text-md-start">
+
+        <div class="text-md-start">
+          <h1 class="fw-bold text-danger">
+              Excluir Sessão
+            </h1>
+          <hr />
+        </div>
+
+        <h2 class="fs-5">
+          Tem certeza que deseja excluir a sessão? <span class="fw-bolder fst-italic">"{{ sessaoFormVM.data | date: 'dd/MM/yyyy'  }}" </span>?
+        </h2>
+      </div>
+
+      <dl class="form-group mt-4 row">
+
+        <dt class="col-md-4">
+          <label class="control-label">Data:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.data | date: 'dd/MM/yyyy' }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Hora de Início:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.horaInicio }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Hora de Término:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.horaTermino }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Tipo de Sessão:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.tipoSessao }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Tipo de Áudio:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.tipoAudio }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Valor do Ingresso:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.valorIngresso  | currency: 'R$ ' }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Nome do Filme:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.filme.titulo }}
+        </dd>
+
+        <dt class="col-md-4">
+          <label class="control-label">Nome da Sala:</label>
+        </dt>
+        <dd class="col-md-8">
+          {{ sessaoFormVM.sala.nome }}
+        </dd>
+
+
+
+
+      </dl>
+
+      <div class="card-footer g-grid d-flex gap-1 mt-5">
+        <button (click)="gravar()"
+          type="button" class="btn btn-dark px-5">
+          <i class="bi bi-trash-fill me-2"></i>
+          Excluir
+        </button>
+        <button routerLink="/sessoes/listar"
+          type="button" class="btn btn-outline-warning px-5">
+          <i class="bi bi-arrow-return-left me-2"></i>
+          Voltar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
