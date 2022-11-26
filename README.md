@@ -1,6 +1,6 @@
 # ControleDeCinema - Front-End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
 # Para o Front-End:
 - Abra o terminal e insira o comando “ng serve -o” e irá abrir no seu navegador a tela de início da aplicação;
