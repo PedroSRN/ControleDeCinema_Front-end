@@ -36,15 +36,15 @@ export class InserirFilmeComponent implements OnInit {
   }
 
   get titulo() {
-    return this.formFilme.get('nome');
+    return this.formFilme.get('titulo');
   }
   get duracao() {
-    return this.formFilme.get('email');
+    return this.formFilme.get('duracao');
   }
   get descricao() {
-    return this.formFilme.get('telefone');
+    return this.formFilme.get('descricao');
   }
- 
+
 
   public gravar() {
     if (this.formFilme.invalid) {
