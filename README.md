@@ -5,7 +5,7 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 # Para o Front-End:
 - Abra o terminal e insira o comando “ng serve -o” e irá abrir no seu navegador a tela de início da aplicação;
 
-#Na aplicação:
+# Na aplicação:
 - Em seu início a aplicação pedirá para que o usuário entre com seus dados de acesso, para executar esse passo deverá se cadastrar e poderá fazer isso através da opção “Clique aqui e cadastre-se!”;
 
 - Para se cadastrar você informará seu nome, um email de sua preferência e uma senha que deverá possuir mais de 6 dígitos, uma letra maiúscula e um caractere especial, mas a aplicação irá lhe orientar caso não tenha informado algum destes; 
